@@ -1,0 +1,30 @@
+<div class="contact-form">
+    <h2>Contact Us - Angular Template Driven form</h2>
+    <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" >
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" #nameRef="ngModel" ngModel required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" #emailRef="ngModel" ngModel required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" #messageRef="ngModel" ngModel required></textarea>
+      </div>
+      <button 
+      type="submit" 
+      [disabled]="!contactForm.valid">Submit</button>
+    </form>
+  </div>
+
+  <!-- RESULTS -->
+<div class="row mt-4"  *ngIf="formHasBeenSubmitted">
+    <div class="col-xs-12">
+      <h3>Name: {{ contactDetails.name }}</h3>
+      <h4>Email: {{ contactDetails.email }}</h4>
+      <p> Message: {{ contactDetails.message }}</p>
+    </div>
+  </div>
+  
